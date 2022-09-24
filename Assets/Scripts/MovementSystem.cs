@@ -45,18 +45,12 @@ namespace Platformer
                     }
                 }
 
-
-
             }
             
         }
         private bool grounded(BoxCollider2D boxCollider, LayerMask groundCollisionLayer) {
             RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, .1f, groundCollisionLayer);
             return hit.collider != null;
-        }
-
-        private bool falling(Rigidbody2D rb) {
-            return rb.velocity.y < -0.1;
         }
     }
 }
