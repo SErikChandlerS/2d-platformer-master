@@ -1,12 +1,24 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Platformer
 {
-    internal struct MovableComponent
+    [Serializable]
+    public struct MovableComponent
     {
-        public CharacterController CharacterController;
-        public float Speed;
+        public Rigidbody2D characterController;
+        public BoxCollider2D boxCollider;
+        public Animator animator;
+        public SpriteRenderer spriteRenderer;
+        public LayerMask groundCollisionLayer;
+
+        public float runSpeed;
+        public float jumpHeight;
+        public bool doubleJump;
+        public bool facingRight;
+        public float shootDelay;
+        public float shootSpeed;
+        public bool changeRotation;
     }
-    
-    internal struct PlayerTag { }
 }

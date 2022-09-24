@@ -34,7 +34,9 @@ namespace Platformer
 
         private void AddSystems()
         {
-            
+            systems.
+                Add(new PlayerInputSystem()).
+                Add(new MovementSystem());
         }
 
         private void AddOneFrames()
