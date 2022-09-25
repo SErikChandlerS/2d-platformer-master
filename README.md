@@ -4,6 +4,10 @@
 В проекте лежат несколько систем, я посторался их разделить по логике, хоть Data Oriented Programming знатно ломает мозг. Отдельные системы для инпута, анимации, передвижении, и выстрела.
 Для удобства работы подключил фреймворк UniLEO, который переводит все геймобьекты в энтити, что позволяет спокойно изменять настройки компонентов прямо в эдиторе не подключая монобэхи.
 
+https://user-images.githubusercontent.com/43161679/192163625-eec6dc23-1c6c-41cf-a429-d20d9281e4d2.mp4
+
+
+
 
 #### Unity project for a simple 2D platformer game based on [Bruce How](https://github.com/brucehow) project. Made with LeoECS and UniLeo.
 
