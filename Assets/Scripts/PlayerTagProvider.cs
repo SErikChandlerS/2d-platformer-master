@@ -2,5 +2,5 @@
 
 namespace Platformer
 {
-    public class PlayerTagProvider : MonoProvider<PlayerTag>{}
+    public class PlayerTagProvider : MonoProvider<PlayerTag>{ }
 }

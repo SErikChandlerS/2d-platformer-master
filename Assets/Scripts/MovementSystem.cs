@@ -6,7 +6,7 @@ namespace Platformer
     sealed class MovementSystem : IEcsRunSystem
     {
         private readonly EcsWorld _world = null;
-        private readonly EcsFilter<ModelComponent, MovableComponent, directionComponent> movableFilter = null;
+        private readonly EcsFilter<ModelComponent, PlayerComponent, directionComponent> movableFilter = null;
 
         public void Run()
         {

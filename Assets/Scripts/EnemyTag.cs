@@ -3,5 +3,5 @@
 namespace Platformer
 {
     [Serializable]
-    public struct PlayerTag { }
+    public struct EnemyTag { }
 }

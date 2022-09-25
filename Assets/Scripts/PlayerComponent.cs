@@ -5,13 +5,16 @@ using UnityEngine.Serialization;
 namespace Platformer
 {
     [Serializable]
-    public struct MovableComponent
+    public struct PlayerComponent
     {
         public Rigidbody2D characterController;
         public BoxCollider2D boxCollider;
         public Animator animator;
-        public SpriteRenderer spriteRenderer;
         public LayerMask groundCollisionLayer;
+        public GameObject bulletPrefab;
+        public Transform firePoint;
+        public float bulletSpeed;
+        public int damage;
 
         public float runSpeed;
         public float jumpHeight;

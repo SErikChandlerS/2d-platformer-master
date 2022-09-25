@@ -2,12 +2,14 @@
 using Leopotam.Ecs;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 
 namespace Platformer
 {
     sealed class PlayerInputSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<PlayerTag, directionComponent, MovableComponent> inputFilter = null;
+        private readonly EcsWorld _world = null;
+        private readonly EcsFilter<PlayerTag, directionComponent, PlayerComponent> inputFilter = null;
 
         public void Run()
         {
@@ -20,6 +22,8 @@ namespace Platformer
                 ref var runSpeed = ref movableComponent.runSpeed;
                 ref var changeRotation = ref movableComponent.changeRotation;
                 ref var jumpHeight = ref movableComponent.jumpHeight;
+                ref var shootDelay = ref movableComponent.shootDelay;
+                ref var shootSpeed = ref movableComponent.shootSpeed;
 
                 if (Input.GetKey("right"))
                 {
@@ -46,9 +50,18 @@ namespace Platformer
                     direction.y = jumpHeight;
                 }
                 
-
+                shootDelay -= Time.deltaTime;
+                if (Input.GetKey(KeyCode.A))
+                {
+                    if (shootDelay < 0)
+                    {
+                        Debug.Log("shosdf");
+                        ref var entity = ref inputFilter.GetEntity(i);
+                        ref var spawnBullet = ref entity.Get<SpawnBullet>();
+                        shootDelay = shootSpeed;
+                    }
+                }
             }
         }
-        
     }
 }
