@@ -14,5 +14,6 @@ namespace Platformer
         public float idleSpeed;
         public bool standing;
         public Transform target;
+        public bool hit;
     }
 }

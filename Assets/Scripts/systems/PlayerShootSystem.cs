@@ -31,7 +31,7 @@ namespace Platformer
                     bullet.damage = player.damage;
                     bullet.firePoint = player.firePoint;
                     bullet.bulletSpeed = player.bulletSpeed;
-                    bullet.bulletPrefab = bulletPrefab;
+                    bullet.bulletPrefab = bulletGO;
                     bullet.bulletCollisionLayer = player.bulletCollisionLayer;
 
                     bullet.rb.velocity = bullet.rb.transform.right * bullet.bulletSpeed;
@@ -42,7 +42,7 @@ namespace Platformer
                 }
                 catch (NullReferenceException)
                 {
-                    Debug.Log("dsfsdf");
+                    Debug.Log("DAFUQ");
                 }
 
             }    

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Platformer
 {
-    sealed class EnemyIdleSystem : IEcsRunSystem
+    sealed class EnemyLogicSystem : IEcsRunSystem
     {
         private readonly EcsWorld _world = null;
         private readonly EcsFilter<MovableComponent, EnemyComponent, directionComponent> enemyFilter = null;

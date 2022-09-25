@@ -39,13 +39,14 @@ namespace Platformer
                 Add(new MovementSystem()).
                 Add(new AnimationSystem()).
                 Add(new PlayerShootSystem()).
-                Add(new EnemyIdleSystem()).
-                Add(new HitSystem());
+                Add(new EnemyLogicSystem()).
+                Add(new HitSystem()).
+                Add(new EnemyAnimationSystem());
         }
 
         private void AddOneFrames()
         {
-            
+            systems.OneFrame<HitEvent>();
         }
 
         private void Update()

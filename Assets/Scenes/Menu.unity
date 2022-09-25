@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 231288437}
   - component: {fileID: 231288445}
   - component: {fileID: 231288444}
+  - component: {fileID: 231288447}
   m_Layer: 12
   m_Name: Character
   m_TagString: Player
@@ -286,24 +287,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value:
-    characterController: {fileID: 231288446}
-    boxCollider: {fileID: 231288438}
-    animator: {fileID: 231288439}
-    groundCollisionLayer:
-      serializedVersion: 2
-      m_Bits: 2304
     bulletPrefab: {fileID: 1613030237718329852, guid: 77d4eeb7f9dc96e4e81673834bed7470,
       type: 3}
     firePoint: {fileID: 1157109654}
     bulletSpeed: 20
     damage: 30
-    runSpeed: 10
-    jumpHeight: 35
-    doubleJump: 0
-    facingRight: 1
     shootDelay: 0
     shootSpeed: 0.3
-    changeRotation: 0
+    bulletCollisionLayer:
+      serializedVersion: 2
+      m_Bits: 2048
 --- !u!114 &231288443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,6 +355,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &231288447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231288436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d1890034ae424f9451027c06af2479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    runSpeed: 10
+    jumpHeight: 30
+    doubleJump: 0
+    facingRight: 1
+    changeRotation: 0
+    characterController: {fileID: 231288446}
+    boxCollider: {fileID: 231288438}
+    animator: {fileID: 231288439}
+    groundCollisionLayer:
+      serializedVersion: 2
+      m_Bits: 2304
 --- !u!1 &242729711
 GameObject:
   m_ObjectHideFlags: 0
@@ -5512,8 +5529,12 @@ GameObject:
   - component: {fileID: 791478561}
   - component: {fileID: 791478565}
   - component: {fileID: 791478564}
-  - component: {fileID: 791478566}
   - component: {fileID: 791478567}
+  - component: {fileID: 791478566}
+  - component: {fileID: 791478568}
+  - component: {fileID: 791478570}
+  - component: {fileID: 791478569}
+  - component: {fileID: 791478571}
   m_Layer: 11
   m_Name: PigMob
   m_TagString: PigMob
@@ -5661,15 +5682,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 791478560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 108f919dd45ec4c44b7eb22aa0d4c327, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ac3b819fe984fefa1ebc263eb95a852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  health: 0
-  deathSpeed: 15
-  rb: {fileID: 0}
-  bc: {fileID: 0}
-  dead: 0
 --- !u!114 &791478567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5679,16 +5694,82 @@ MonoBehaviour:
   m_GameObject: {fileID: 791478560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b8e53ffc92245048897de35149c025c, type: 3}
+  m_Script: {fileID: 11500000, guid: 863c7f7460b2b49abb4fa9a7ff9cb180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  mobSpeed: 4
-  target: {fileID: 0}
-  angry: 0
-  dead: 0
-  facingRight: 0
-  collider: {fileID: 0}
+  convertMode: 2
+--- !u!114 &791478568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791478560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f0e3e36d83d4cd59d175e706e6f5bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    health: 100
+    deathSpeed: 15
+    dead: 0
+    angry: 0
+    idleTimer: -1
+    idleSpeed: 1
+    standing: 1
+    target: {fileID: 231288441}
+    hit: 0
+--- !u!114 &791478569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791478560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d1890034ae424f9451027c06af2479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    runSpeed: 5
+    jumpHeight: 0
+    doubleJump: 0
+    facingRight: 0
+    changeRotation: 0
+    characterController: {fileID: 791478565}
+    boxCollider: {fileID: 791478564}
+    animator: {fileID: 791478561}
+    groundCollisionLayer:
+      serializedVersion: 2
+      m_Bits: 256
+--- !u!114 &791478570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791478560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1c1c77866064ad3b038b719aa0d215f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value:
+    modelTransform: {fileID: 791478563}
+--- !u!114 &791478571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791478560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1801ec8c8d5d441a9af69e8a80a35662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1157109653
 GameObject:
   m_ObjectHideFlags: 0

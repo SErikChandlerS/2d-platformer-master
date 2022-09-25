@@ -1,4 +1,5 @@
 using Leopotam.Ecs;
+using UnityEditor;
 using UnityEngine;
 using Voody.UniLeo;
 using Object = UnityEngine.Object;
@@ -26,31 +27,35 @@ namespace Platformer
                 {
                     if (hit.collider.CompareTag("PigMob"))
                     {
-                        // ref var bulletHit = ref entity.Get<BulletHitComponent>();
-                        // bulletHit.raycastHit = hit;
+                        var entity = bulletFilter.GetEntity(i);
+
                         var enemyGO = hit.collider.gameObject;
                         enemyGO.TryGetComponent(out ConvertToEntity cte);
                         
                         if (cte.TryGetEntity().HasValue)
                         {
-                            var enemyComponent = cte.TryGetEntity().Value.Get<EnemyComponent>();
-                            var enemyMoveComp = cte.TryGetEntity().Value.Get<MovableComponent>();
+                            var enemyEntity = cte.TryGetEntity().Value;
+                            ref var enemyComponent = ref cte.TryGetEntity().Value.Get<EnemyComponent>();
+                            ref var enemyMoveComp = ref cte.TryGetEntity().Value.Get<MovableComponent>();
                             
                             enemyComponent.health -= bulletComponent.damage;
                             Debug.Log(enemyComponent.health);
                             if (enemyComponent.health <= 0)
                             {
-                                enemyMoveComp.animator.SetInteger("state", 4);
-                                Object.Destroy(enemyGO);
+                                enemyComponent.dead = true;
+
                             }
                             if (!enemyComponent.angry & !enemyComponent.dead)
                             {
-                                Debug.Log("angry");
                                 enemyComponent.angry = true;
                             }
+                            enemyComponent.hit = true;
                         }
-
+                        
+                        Object.Destroy(bulletComponent.bulletPrefab);
+                        entity.Destroy();
                     }
+
                 }
             }
             
