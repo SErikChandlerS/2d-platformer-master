@@ -6,12 +6,13 @@ namespace Platformer
     [Serializable]
     public struct EnemyComponent
     {
-        public Animator animator;
         public int health;
         public int deathSpeed;
-        public Rigidbody2D rb;
-        private BoxCollider2D boxCollider;
-        private bool dead;
-        private bool angry;
+        public bool dead;
+        public bool angry;
+        public float idleTimer;
+        public float idleSpeed;
+        public bool standing;
+        public Transform target;
     }
 }

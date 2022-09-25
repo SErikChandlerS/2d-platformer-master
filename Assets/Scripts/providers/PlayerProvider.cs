@@ -2,7 +2,7 @@
 
 namespace Platformer
 {
-    public class MovableProvider : MonoProvider<PlayerComponent>
+    public class PlayerProvider : MonoProvider<PlayerComponent>
     {
         
     }

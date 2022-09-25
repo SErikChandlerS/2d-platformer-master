@@ -32,6 +32,7 @@ namespace Platformer
                     bullet.firePoint = player.firePoint;
                     bullet.bulletSpeed = player.bulletSpeed;
                     bullet.bulletPrefab = bulletPrefab;
+                    bullet.bulletCollisionLayer = player.bulletCollisionLayer;
 
                     bullet.rb.velocity = bullet.rb.transform.right * bullet.bulletSpeed;
 

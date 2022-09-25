@@ -9,21 +9,22 @@ namespace Platformer
     sealed class PlayerInputSystem : IEcsRunSystem
     {
         private readonly EcsWorld _world = null;
-        private readonly EcsFilter<PlayerTag, directionComponent, PlayerComponent> inputFilter = null;
+        private readonly EcsFilter<PlayerTag, directionComponent, PlayerComponent, MovableComponent> inputFilter = null;
 
         public void Run()
         {
             foreach (var i in inputFilter)
             {
                 ref var directionComponent = ref inputFilter.Get2(i);
-                ref var movableComponent = ref inputFilter.Get3(i);
+                ref var playerComponent = ref inputFilter.Get3(i);
+                ref var movableProvider = ref inputFilter.Get4(i);
                 ref var direction = ref directionComponent.Direction;
-                ref var facingRight = ref movableComponent.facingRight;
-                ref var runSpeed = ref movableComponent.runSpeed;
-                ref var changeRotation = ref movableComponent.changeRotation;
-                ref var jumpHeight = ref movableComponent.jumpHeight;
-                ref var shootDelay = ref movableComponent.shootDelay;
-                ref var shootSpeed = ref movableComponent.shootSpeed;
+                ref var facingRight = ref movableProvider.facingRight;
+                ref var runSpeed = ref movableProvider.runSpeed;
+                ref var changeRotation = ref movableProvider.changeRotation;
+                ref var jumpHeight = ref movableProvider.jumpHeight;
+                ref var shootDelay = ref playerComponent.shootDelay;
+                ref var shootSpeed = ref playerComponent.shootSpeed;
 
                 if (Input.GetKey("right"))
                 {

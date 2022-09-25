@@ -6,7 +6,7 @@ namespace Platformer
     sealed class MovementSystem : IEcsRunSystem
     {
         private readonly EcsWorld _world = null;
-        private readonly EcsFilter<ModelComponent, PlayerComponent, directionComponent> movableFilter = null;
+        private readonly EcsFilter<ModelComponent, MovableComponent, directionComponent> movableFilter = null;
 
         public void Run()
         {
@@ -28,6 +28,7 @@ namespace Platformer
                 if (changeRotation)
                 {
                     transform.Rotate(0, 180, 0);
+                    changeRotation = false;
                 }
                 
                 characterController.velocity = new Vector2(direction.x, characterController.velocity.y);

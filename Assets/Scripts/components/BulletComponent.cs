@@ -11,5 +11,6 @@ namespace Platformer
         public int damage;
         public GameObject bulletPrefab;
         public Transform firePoint;
+        public LayerMask bulletCollisionLayer;
     }
 }

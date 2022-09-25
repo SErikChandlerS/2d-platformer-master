@@ -6,7 +6,7 @@ namespace Platformer
     sealed class AnimationSystem : IEcsRunSystem
     {
         private readonly EcsWorld _world = null;
-        private EcsFilter<PlayerTag, PlayerComponent> playerFilter = null;
+        private EcsFilter<PlayerTag, MovableComponent> playerFilter = null;
 
         public void Run()
         {
