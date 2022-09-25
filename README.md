@@ -1,7 +1,10 @@
 # 2D Platformer
-Unity project for a simple 2D platformer game based on [Bruce How](https://github.com/brucehow) project 
-Made with LeoECS and UniLeo
+
+Я выбрал LeoECS, потому что это один из самых легковесных фреймворков для работы в ECS архитектуре. В нем компоненты хранятся в структурах, а не в классах, чтоу скоряет время разработки.
+В проекте лежат несколько систем, я посторался их разделить по логике, хоть Data Oriented Programming знатно ломает мозг. Отдельные системы для инпута, анимации, передвижении, и выстрела.
+Для удобства работы подключил фреймворк UniLEO, который переводит все геймобьекты в энтити, что позволяет спокойно изменять настройки компонентов прямо в эдиторе не подключая монобэхи.
 
 
+## Unity project for a simple 2D platformer game based on [Bruce How](https://github.com/brucehow) project. Made with LeoECS and UniLeo.
 
 
