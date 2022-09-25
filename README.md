@@ -5,6 +5,6 @@
 Для удобства работы подключил фреймворк UniLEO, который переводит все геймобьекты в энтити, что позволяет спокойно изменять настройки компонентов прямо в эдиторе не подключая монобэхи.
 
 
-## Unity project for a simple 2D platformer game based on [Bruce How](https://github.com/brucehow) project. Made with LeoECS and UniLeo.
+#### Unity project for a simple 2D platformer game based on [Bruce How](https://github.com/brucehow) project. Made with LeoECS and UniLeo.
 
 
